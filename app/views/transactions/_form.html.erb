@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :source_account_id %>
-    <%= form.text_field :source_account_id %>
+    <b><%= current_user.name %></b>
   </div>
 
   <div class="field">
     <%= form.label :destination_account_id %>
-    <%= form.text_field :destination_account_id %>
+    <%= select("Destination Account", "destination_account_id", @users) %>
   </div>
 
   <div class="field">

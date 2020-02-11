@@ -1,11 +1,8 @@
-<p id="notice"><%= notice %></p>
 <% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to "Log Out", logout_path %>
   <div>
     <br>
-    <%= link_to "Show Balance", accounts_path %> -
-    <%= link_to "Transfer To", accounts_path %>
+    <%= link_to "Show Balance", balance_path %> |
+    <%= link_to "Transfer To", new_transaction_path %>
   </div>
 <% else %>
   <p>Please choose one option…</p>

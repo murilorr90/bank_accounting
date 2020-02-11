@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_account, only: [:edit, :update, :destroy]
 
   # GET /accounts
   # GET /accounts.json
@@ -10,11 +10,21 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
+    @account = Account.find_by(:user_id => current_user.id)
+  end
+
+  # GET /accounts/1
+  # GET /accounts/1.json
+  def balance
+    @account = Account.where(:user_id => current_user.id)
+
+    User.aposkg
   end
 
   # GET /accounts/new
   def new
     @account = Account.new
+    @users = User.all.by_name.names
   end
 
   # GET /accounts/1/edit

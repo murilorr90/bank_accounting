@@ -15,6 +15,15 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    @users = User.where.not(id: current_user.id).by_name.names
+
+    respond_to do |format|
+      if @users.blank?
+        format.html { redirect_to root_path, notice: 'No other user to transfer.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   # GET /transactions/1/edit

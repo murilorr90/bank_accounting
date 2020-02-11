@@ -12,6 +12,11 @@
   <body>
     <div style="text-align: center">
       <h1>Bank Accounting</h1>
+      <% if current_user %>
+        Logged in as <b><%= current_user.name %></b> (<%= current_user.email %>).
+        <%= link_to "Log Out", logout_path %>
+      <% end %>
+      <p id="notice"><%= notice %></p>
       <%= yield %>
     </div>
   </body>
